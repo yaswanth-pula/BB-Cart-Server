@@ -1,0 +1,36 @@
+{
+  "name": "bb-cart-server",
+  "version": "1.0.0",
+  "description": "A Graphql Server for bb-cart",
+  "main": "server.js",
+  "scripts": {
+    "start": "node dist/server.js",
+    "dev": "nodemon src/server.ts",
+    "build": "tsc -p .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "graphql",
+    "apollo-server"
+  ],
+  "author": "yaswanth-pula",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-datasource-mongodb": "^0.4.3",
+    "apollo-server": "^2.25.1",
+    "graphql": "^15.5.1",
+    "mongodb": "^3.6.8"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/node": "^7.14.7",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-typescript": "^7.14.5",
+    "@types/express": "^4.17.12",
+    "@types/mongodb": "^3.6.18",
+    "@types/node": "^15.12.4",
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.7",
+    "ts-node": "^10.0.0"
+  }
+}
