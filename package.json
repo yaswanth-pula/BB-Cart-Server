@@ -18,6 +18,8 @@
   "dependencies": {
     "apollo-datasource-mongodb": "^0.4.3",
     "apollo-server": "^2.25.1",
+    "apollo-server-express": "^2.25.2",
+    "express": "^4.17.1",
     "graphql": "^15.5.1",
     "mongodb": "^3.6.8"
   },

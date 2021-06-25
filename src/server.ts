@@ -1,4 +1,5 @@
-import { ApolloServer } from "apollo-server";
+import { ApolloServer } from "apollo-server-express";
+import express from "express";
 import { typeDefs, resolvers } from "./schema";
 import dataSources from "./datasources";
 import { connectToDB } from "./utils/db";
@@ -11,7 +12,12 @@ const server: ApolloServer = new ApolloServer({
   dataSources,
 });
 
+const app = express();
+server.applyMiddleware({ app, path: "/graphql" });
+
 const port = process.env.PORT || 5000;
-server.listen(port).then(({ url }) => {
-  console.log(`Graphql Server Running at ${url}`);
+app.listen({ port }, () => {
+  console.log(
+    `Graphql Server Started on http://localhost:5000${server.graphqlPath}`
+  );
 });
