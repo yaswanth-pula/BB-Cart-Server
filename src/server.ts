@@ -3,16 +3,18 @@ import express from "express";
 import { typeDefs, resolvers } from "./schema";
 import dataSources from "./datasources";
 import { connectToDB } from "./utils/db";
+import Authenticate from "./auth";
 
 connectToDB();
 
+const app = express();
 const server: ApolloServer = new ApolloServer({
   typeDefs,
   resolvers,
   dataSources,
+  context: ({ req }) => Authenticate(req),
 });
 
-const app = express();
 server.applyMiddleware({ app, path: "/graphql" });
 
 const port = process.env.PORT || 5000;

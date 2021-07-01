@@ -17,10 +17,11 @@
   "license": "ISC",
   "dependencies": {
     "apollo-datasource-mongodb": "^0.4.3",
-    "apollo-server": "^2.25.1",
     "apollo-server-express": "^2.25.2",
     "express": "^4.17.1",
     "graphql": "^15.5.1",
+    "jsonwebtoken": "^8.5.1",
+    "jwks-rsa": "^2.0.3",
     "mongodb": "^3.6.8"
   },
   "devDependencies": {
@@ -29,6 +30,7 @@
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-typescript": "^7.14.5",
     "@types/express": "^4.17.12",
+    "@types/jsonwebtoken": "^8.5.2",
     "@types/mongodb": "^3.6.18",
     "@types/node": "^15.12.4",
     "dotenv": "^10.0.0",
