@@ -15,9 +15,28 @@ const typeDefs = gql`
     products: [Product]
   }
 
+  type OrderItem {
+    productId: String
+    name: String
+    imageUrl: String
+    price: Float
+    units: String
+    quantity: Int
+  }
+
+  type Order {
+    orderId: String
+    products: [OrderItem]
+  }
+
   type Query {
     allCategories: [Category]
     categoryById(id: String): Category
+    userOrders(userId: String): [Order]
+  }
+
+  type Mutation {
+    placeUserOrder(userOrder: String): String
   }
 `;
 export default typeDefs;

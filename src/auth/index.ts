@@ -6,7 +6,7 @@ const client = new JwksClient({
 });
 
 const getKey = (header: any, callback: any) => {
-  client.getSigningKey(header.kid, (error, key: any) => {
+  client.getSigningKey(header.kid, (_, key: any) => {
     const signingKey = key.publicKey || key.rsaPublicKey || "";
     callback(null, signingKey);
   });
@@ -15,10 +15,7 @@ const Authenticate = (request: any) => {
   const reqHeader: string = request.headers.authorization || "";
   const token = reqHeader.split(" ")[1];
 
-  if (token === "GUEST_TOKEN")
-    return {
-      role: "guest",
-    };
+  if (token === "GUEST_TOKEN") return "";
 
   const user = new Promise((resolve, reject) => {
     verify(

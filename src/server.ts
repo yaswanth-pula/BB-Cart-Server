@@ -12,7 +12,9 @@ const server: ApolloServer = new ApolloServer({
   typeDefs,
   resolvers,
   dataSources,
-  context: ({ req }) => Authenticate(req),
+  context: ({ req }) => ({
+    user: Authenticate(req),
+  }),
 });
 
 server.applyMiddleware({ app, path: "/graphql" });
